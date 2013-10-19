@@ -5,9 +5,15 @@ public class Dollar {
 	public Dollar(int amount) {
 		this.amount = amount;
 	}
-	void times(int multiplier){
-		amount = amount * 2;
-
+	Dollar times(int multiplier){
+		return new Dollar(amount * multiplier);
+//		amount = amount * 2;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		Dollar dollar = (Dollar) obj;
+		return amount == dollar.amount;
+		//	return true;
 	}
 
 }
