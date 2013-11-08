@@ -3,7 +3,7 @@ public class Money implements Expression{
 	protected int amount ;
 	protected String currency;
 
-	Money times(int multiplier){
+	Expression times(int multiplier){
 		return new Money(amount*multiplier,currency);
 	}
 
@@ -33,7 +33,7 @@ public class Money implements Expression{
 		return currency;
 	}
 
-	public Expression plus(Money addend) {
+	public Expression plus(Expression addend) {
 		return new Sum(this,addend);
 	}
 
@@ -42,5 +42,4 @@ public class Money implements Expression{
 		int rate =bank.rate(currency, to);
 		return new Money(amount /rate,to);
 	}
-
 }
